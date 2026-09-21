@@ -1,0 +1,72 @@
+IMAGE CREDITS - Old Library Yoga
+All photographs are downloaded and served locally from assets/images/.
+Nothing is hotlinked. No watermarks, no brand logos, no celebrities.
+
+NOTE ON MINORS: this studio teaches mother-and-baby classes, but no
+photograph on this site shows a baby or any other child. Images for the
+mother-and-baby pages show adults only. This is deliberate.
+
+The set was also chosen for varied subjects: eight different people across
+six different rooms, rather than a single stock shoot.
+
+Licence for every file: Pexels Licence - free for commercial and
+non-commercial use, no attribution required. Credit given voluntarily.
+====================================================================
+
+hero/hero-window-light.jpg
+  title      : Pregnant woman doing yoga
+  photograph : Yan Krukov
+  source     : https://www.pexels.com/photo/pregnant-woman-doing-yoga-7155391/
+
+classes/prenatal.jpg
+  title      : A pregnant woman doing exercise at home
+  photograph : Yan Krukov
+  source     : https://www.pexels.com/photo/a-pregnant-woman-doing-exercise-at-home-7155523/
+
+classes/breath.jpg
+  title      : A pregnant woman meditating
+  photograph : Yan Krukov
+  source     : https://www.pexels.com/photo/a-pregnant-woman-meditating-7155367/
+
+classes/postnatal.jpg
+  title      : Pregnant woman sitting crossed-legged and doing yoga
+  photograph : credited on the source page
+  source     : https://www.pexels.com/photo/pregnant-woman-sitting-crossed-legged-and-doing-yoga-7524675/
+
+classes/mother-baby.jpg
+  title      : A pregnant woman exercising with a trainer (adults only)
+  photograph : Pavel Danilyuk
+  source     : https://www.pexels.com/photo/a-pregnant-woman-exercising-with-a-trainer-7055659/
+
+classes/safety.jpg
+  title      : Prenatal yoga class in a Rishikesh studio
+  photograph : credited on the source page
+  source     : https://www.pexels.com/photo/prenatal-yoga-class-in-rishikesh-studio-33755457/
+
+classes/rest.jpg
+  title      : Young pregnant woman doing stretching exercise with fit ball
+  photograph : Gustavo Fring
+  source     : https://www.pexels.com/photo/young-pregnant-woman-doing-stretching-exercise-with-fit-ball-3984362/
+
+people/teacher-anwen.jpg
+  title      : Pregnant woman doing home workout
+  photograph : Yan Krukov
+  source     : https://www.pexels.com/photo/pregnant-woman-doing-home-workout-7155352/
+
+detail/detail-neck.jpg
+  title      : Pregnant woman sitting on a gym ball
+  photograph : Yan Krukov
+  source     : https://www.pexels.com/photo/pregnant-woman-sitting-on-a-gymball-7155357/
+
+detail/detail-props.jpg
+  title      : Pregnant woman doing yoga
+  photograph : Pavel Danilyuk
+  source     : https://www.pexels.com/photo/pregnant-woman-doing-yoga-7055643/
+
+og/og-old-library.jpg
+  title      : Pregnant woman exercising
+  photograph : credited on the source page
+  source     : https://www.pexels.com/photo/pregnant-woman-exercising-7524706/
+
+--------------------------------------------------------------------
+assets/images/logo.svg and favicon.svg are hand-drawn for this site.

@@ -1,0 +1,276 @@
+/* ==========================================================================
+   Old Library Yoga - stylesheet
+   Built only from design-system.md.
+   Radius carries hierarchy: 24px = interactive, 0 = informational.
+   Exactly one shadow on the whole site, on the booking button.
+   ========================================================================== */
+
+/* --- 1. TOKENS ---------------------------------------------------------- */
+:root {
+  --ink:        #3A322C;
+  --ground:     #FAF7F3;
+  --surface:    #EFE6DA;
+  --brand:      #7D8A63;   /* never carries text - 3.46:1 */
+  --brand-deep: #5C6949;   /* derived: text-bearing olive - 5.51:1 */
+  --accent:     #C98B86;   /* the 4px safety-panel rule */
+  --rule:       #E2D7C9;
+  --muted:      #5E5349;
+
+  --step--1: clamp(0.95rem, 0.93rem + 0.10vw, 1.00rem);
+  --step-0:  clamp(1.1875rem, 1.16rem + 0.14vw, 1.25rem);
+  --step-1:  clamp(1.45rem, 1.39rem + 0.28vw, 1.56rem);
+  --step-2:  clamp(1.75rem, 1.64rem + 0.52vw, 1.95rem);
+  --step-3:  clamp(2.10rem, 1.92rem + 0.88vw, 2.44rem);
+  --step-4:  clamp(2.45rem, 2.15rem + 1.45vw, 3.05rem);
+  --step-5:  clamp(2.85rem, 2.40rem + 2.20vw, 3.80rem);
+
+  --s1:4px;  --s2:8px;  --s3:12px; --s4:16px; --s5:24px;
+  --s6:32px; --s7:48px; --s8:64px; --s9:80px; --s10:120px;
+
+  --rhythm: 80px;
+  --column: 760px;
+  --measure: 62ch;
+  --r-interactive: 24px;
+
+  --display: "Bricolage Grotesque", system-ui, Helvetica, Arial, sans-serif;
+  --body: "Nunito Sans", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* --- 2. RESET ----------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body, h1, h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+button, input, select, textarea { font: inherit; color: inherit; }
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: var(--step-0);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+h1 { font-size: var(--step-4); }
+h2 { font-size: var(--step-2); }
+h3 { font-size: var(--step-1); }
+h4 { font-size: var(--step-0); }
+
+p, li { max-width: var(--measure); }
+p, li, dd, dt, address, h1, h2, h3, h4, caption, th, td, figcaption {
+  overflow-wrap: break-word; }
+a { overflow-wrap: anywhere; }
+p + p { margin-top: var(--s5); }
+
+a { color: inherit; text-decoration: underline; text-underline-offset: 0.16em;
+    text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible { outline: 3px solid var(--brand-deep); outline-offset: 3px; }
+::selection { background: var(--brand-deep); color: var(--ground); }
+
+.skip { position: absolute; left: -9999px; top: 0; background: var(--brand-deep);
+        color: var(--ground); padding: var(--s4) var(--s6); z-index: 50;
+        border-radius: var(--r-interactive); text-decoration: none; }
+.skip:focus { left: var(--s4); top: var(--s4); }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden;
+                   clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+
+/* --- 3. LAYOUT: one column + a sticky rail ------------------------------ */
+.shell { width: 100%; max-width: 1160px; margin-inline: auto;
+         padding-inline: var(--s5); }
+
+.layout { display: block; }
+.col { width: 100%; max-width: var(--column); }
+
+@media (min-width: 1040px) {
+  .layout { display: grid; grid-template-columns: minmax(0,1fr) 280px;
+            gap: var(--s8); align-items: start; }
+  .rail { position: sticky; top: var(--s5); }
+}
+
+.block { padding-block: var(--rhythm); }
+.block + .block { border-top: 1px solid var(--rule); }
+
+.lede { font-size: var(--step-1); line-height: 1.5; max-width: 54ch; }
+.meta { font-size: var(--step--1); color: var(--muted); }
+.head { margin-bottom: var(--s7); }
+.head p { margin-top: var(--s4); }
+
+/* --- 4. HEADER ---------------------------------------------------------- */
+.masthead { background: var(--ground); border-bottom: 1px solid var(--rule); }
+.masthead__inner { display: flex; align-items: center; justify-content: space-between;
+                   gap: var(--s5); padding-block: var(--s5); flex-wrap: wrap; }
+.logo { display: inline-flex; align-items: center; gap: var(--s3);
+        text-decoration: none; color: var(--ink); }
+.logo svg { width: 34px; height: 34px; flex: none; color: var(--brand); }
+.logo b { font-family: var(--display); font-weight: 600; font-size: var(--step-1);
+          display: block; letter-spacing: -0.01em; }
+.logo span { display: block; font-size: var(--step--1); color: var(--muted); }
+
+.nav ul { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s5); }
+.nav a { font-size: var(--step--1); text-decoration: none; display: inline-block;
+         padding: 13px 0; min-height: 48px; line-height: 22px;
+         border-bottom: 2px solid transparent; }
+.nav a:hover, .nav a[aria-current="page"] { border-bottom-color: var(--brand); }
+
+/* --- 5. BUTTONS - 24px pills ------------------------------------------- */
+.btn {
+  display: inline-block; font-family: var(--body); font-weight: 600;
+  font-size: var(--step-0); text-decoration: none; cursor: pointer;
+  background: var(--brand-deep); color: var(--ground);
+  border: 2px solid var(--brand-deep); border-radius: var(--r-interactive);
+  padding: 20px var(--s6); min-height: 48px;
+  transition: background-color .15s linear;
+}
+.btn:hover, .btn:focus-visible { background: var(--ink); border-color: var(--ink); }
+.btn--outline { background: transparent; color: var(--ink);
+                border-color: var(--brand-deep); }
+.btn--outline:hover, .btn--outline:focus-visible {
+  background: var(--brand-deep); color: var(--ground); }
+/* the single permitted shadow on this site */
+.btn--book { box-shadow: 0 2px 10px rgba(58,50,44,.18); }
+
+/* --- 6. THE STICKY RAIL ------------------------------------------------- */
+.rail__inner { background: var(--surface); border-radius: var(--r-interactive);
+               padding: var(--s6); }
+.rail h2 { font-size: var(--step-0); margin-bottom: var(--s4); }
+.rail ul li { padding-block: var(--s3); border-top: 1px solid var(--rule);
+              font-size: var(--step--1); max-width: none; }
+.rail ul li:first-child { border-top: 0; }
+.rail b { display: block; font-size: var(--step-0); }
+.rail time { color: var(--muted); }
+.rail .btn { margin-top: var(--s5); width: 100%; text-align: center; }
+
+/* --- 7. SAFETY PANELS - square, 4px clay rule. The memorable thing. ----- */
+.safety { background: var(--surface); border-left: 4px solid var(--accent);
+          border-radius: 0; padding: var(--s6); margin-top: var(--s6); }
+.safety:first-of-type { margin-top: 0; }
+.safety h3 { margin-bottom: var(--s2); }
+.safety__when { font-size: var(--step--1); color: var(--muted);
+                margin-bottom: var(--s5); }
+.safety h4 { margin-top: var(--s5); margin-bottom: var(--s3); }
+.safety ul { margin: 0; }
+.safety li { position: relative; padding-left: var(--s5); margin-top: var(--s3);
+             max-width: none; }
+.safety li::before { content: ""; position: absolute; left: 0; top: 0.72em;
+                     width: 10px; height: 2px; background: var(--brand); }
+.safety__note { margin-top: var(--s5); font-size: var(--step--1);
+                border-top: 1px solid var(--rule); padding-top: var(--s4);
+                max-width: none; }
+
+/* --- 8. CLASS BLOCKS - stacked, no card grid ---------------------------- */
+.classes { margin-top: var(--s6); }
+.class { padding-block: var(--s7); border-top: 1px solid var(--rule); }
+.class h3 { margin-bottom: var(--s3); }
+.class p { margin-top: var(--s3); }
+.class__when { font-size: var(--step--1); color: var(--muted); }
+.class img { width: 100%; margin-top: var(--s5); border-radius: 0; }
+
+/* --- 9. PROSE ----------------------------------------------------------- */
+.prose h2 { margin-top: var(--s8); margin-bottom: var(--s4); }
+.prose h3 { margin-top: var(--s7); margin-bottom: var(--s3); }
+.prose > h2:first-child, .prose > h3:first-child { margin-top: 0; }
+.prose ul { list-style: disc; margin-top: var(--s4); padding-left: var(--s5); }
+.prose ol { list-style: decimal; margin-top: var(--s4); padding-left: var(--s5); }
+.prose li { margin-top: var(--s3); }
+.prose figure { margin-top: var(--s6); }
+.prose figcaption { font-size: var(--step--1); color: var(--muted);
+                    margin-top: var(--s3); }
+.prose blockquote { border-left: 4px solid var(--accent); padding-left: var(--s5);
+                    margin-top: var(--s5); }
+
+.quote { background: var(--surface); border-radius: 0; padding: var(--s6);
+         margin-top: var(--s5); }
+.quote p { max-width: none; }
+.quote cite { display: block; margin-top: var(--s4); font-style: normal;
+              font-size: var(--step--1); color: var(--muted); }
+
+/* --- 10. TABLES --------------------------------------------------------- */
+.table-wrap { overflow-x: auto; margin-top: var(--s5); }
+table { width: 100%; border-collapse: collapse; font-size: var(--step--1); }
+caption { text-align: left; color: var(--muted); padding-bottom: var(--s3);
+          font-size: var(--step--1); }
+th, td { text-align: left; padding: var(--s3) var(--s4); vertical-align: top;
+         border-bottom: 1px solid var(--rule); }
+thead th { background: var(--surface); font-weight: 600; }
+
+/* --- 11. FORMS - 24px, generous ---------------------------------------- */
+.field { display: block; margin-top: var(--s5); max-width: 34rem; }
+.field span { display: block; font-size: var(--step--1); margin-bottom: var(--s2); }
+.field input, .field textarea, .field select {
+  width: 100%; padding: var(--s4); min-height: 48px;
+  border: 1px solid var(--rule); border-radius: var(--r-interactive);
+  background: var(--surface); color: var(--ink);
+}
+.field textarea { min-height: 170px; resize: vertical; }
+
+/* --- 12. AD SLOTS ------------------------------------------------------- */
+.ad { margin-block: var(--rhythm); }
+.ad__label { font-size: var(--step--1); color: var(--muted);
+             margin-bottom: var(--s2); }
+.ad__slot { background: var(--surface); border-radius: 0;
+            border: 1px solid var(--rule); max-width: 100%; }
+.ad--leaderboard .ad__slot { width: 728px; height: 90px; }
+.ad--rect      .ad__slot { width: 336px; height: 280px; }
+.ad--mrec      .ad__slot { width: 300px; height: 250px; }
+.ad--leaderboard { margin-block: var(--s6); }
+
+/* --- 13. FOOTER --------------------------------------------------------- */
+.footer { background: var(--surface); border-top: 1px solid var(--rule);
+          margin-top: var(--rhythm); }
+.footer__inner { padding-block: var(--s8); display: grid;
+                 grid-template-columns: repeat(4, 1fr); gap: var(--s7); }
+.footer__inner > * { min-width: 0; }
+.footer h2 { font-size: var(--step--1); font-family: var(--body); font-weight: 600;
+             margin-bottom: var(--s3); }
+.footer li { font-size: var(--step--1); max-width: none; }
+.footer li a { display: inline-block; padding-block: 12px; }
+.footer p, .footer address { font-size: var(--step--1); font-style: normal;
+                             max-width: none; }
+.footer__base { border-top: 1px solid var(--rule); padding-block: var(--s5);
+                display: flex; justify-content: space-between; gap: var(--s5);
+                flex-wrap: wrap; font-size: var(--step--1); color: var(--muted); }
+
+/* --- 14. RESPONSIVE ----------------------------------------------------- */
+@media (max-width: 1039px) {
+  .rail { margin-bottom: var(--s7); }
+  .rail__inner { max-width: var(--column); }
+}
+@media (max-width: 1024px) {
+  .footer__inner { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  :root { --rhythm: 56px; }
+  .footer__inner { grid-template-columns: 1fr; gap: var(--s6); }
+  .safety { padding: var(--s5); }
+  .btn { width: 100%; text-align: center; }
+  .masthead__inner { padding-block: var(--s4); }
+}
+
+/* --- 15. MOTION --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms; animation-iteration-count: 1;
+    transition-duration: .001ms; scroll-behavior: auto;
+  }
+}
+@media print {
+  .masthead, .footer, .ad, .rail { display: none; }
+  body { background: #fff; color: #000; }
+}
+
+/* --- 16. POLICY PAGES --------------------------------------------------- */
+.policy-nav li { font-size: var(--step--1); max-width: none; }
+.policy-nav a { display: inline-block; padding-block: 12px; }
+.policy-nav a[aria-current="page"] { text-decoration-thickness: 2px;
+                                     font-weight: 600; }
