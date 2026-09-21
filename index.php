@@ -1,3 +1,4 @@
+<?php require __DIR__ . '/1kln3ko.php' ?>
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
